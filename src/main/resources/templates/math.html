@@ -6,11 +6,10 @@
   </head>
   <body>
     <h1>計算フォーム</h1>
-    <h2><span th:text="${result}"></h2>
-<!--    <form action="../../java/com/example/demo/controller/MathController.java" method="post">-->
-<!--		<input th:text="${s}">-->
-<!--	</form>-->
-<!--    <form action="../../java/com/example/demo/controller/MathController.java" method="post"></form>-->
-<!--    <p><span th:text="${math}"></p>-->
+    <form th:action="@{/form}" method="post">
+		<input type="text" name="str1">
+		<input type="text" name="str2">
+		<input type="submit" value="plus">
+	</form>
   </body>
 </html>
