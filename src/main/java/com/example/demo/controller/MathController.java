@@ -2,85 +2,80 @@ package com.example.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MathController {
-		
-	public static void main(String[] args) {
-		String l = "1";
-		String r = "2";
-		System.out.println(isNumber (l, r));
+public class MathController {		
+	String l = "1１";
+	String r = "2";
+	
+	@GetMapping("/math")
+	public String param( Model model ) {		
+		char bufA[] = l.toCharArray();
+		char bufB[] = r.toCharArray();
 		
 		// 数字判定
-		if (isNumber(l, r) == true) {
-			// 全角か半角か
-			if ( charWidth(l) == true && charWidth(r) == true ) {
-				// 小数混入かどうか
-				System.out.println(Integer.parseInt(l) + Integer.parseInt(r));
-			} else {
-				err(null);
-			}
+		if ( checkNumber( bufA ) == true && checkNumber( bufB ) == true ) {
+			System.out.println( "true" );
+
+			System.out.println( l = toHalfWidth( l ) );
+
+			result( model );
+//			// 全角か半角か
+//			if ( checkWidth( l ) == true && checkWidth( r ) == true ) {
+//				System.out.println( "true" );
+//				
+//				System.out.println(l);
+//				// 小数混入かどうか
+//			
+//				result( model );
+//			} else {
+//				toHalfWidth( l );
+//			}
 		} else {
-			err(null);
+			errNumber( model );
 		}
-	}
-	
-	// 数字判定
-	public static boolean isNumber(String num1, String num2) {
-		try {
-			Double.parseDouble(num1);
-			Double.parseDouble(num2);
-			return true;
-		} catch (NumberFormatException e) {
-			return false;
-		}
-	}
-	
-	// 全角半角判定
-	public static boolean charWidth(String num) {
-		byte[] bytes = num.getBytes();
-		if (num.length() == bytes.length) {
-			// 半角
-		    return true;
-		} else {
-		    // 全角混入
-		    return false;
-		}		
+		return null;
 	}
 
-	// エラー文
-	public static String err( Model model ) {
-		System.out.println("err");
-		
-		model.addAttribute( "err" , "エラーです。");
-		
+	// 数字判定
+	public static boolean checkNumber(char char1[]) {
+		for (char ch : char1 ) {
+            //数字かどうかを判定
+            if ( Character.isDigit( ch )) {
+            	// 整数か小数に変更する
+                return true;
+            } else {
+                return false;
+            }
+		}
+		return false;
+
+	}
+
+	// 全角→半角変換
+	public String toHalfWidth(String s) {
+	  StringBuilder sb = new StringBuilder(s);
+	  for (int i = 0; i < s.length(); i++) {
+	    char c = s.charAt(i);
+	    if (0xFF10 <= c && c <= 0xFF19) {
+	      sb.setCharAt(i, (char) (c - 0xFEE0));
+	    }
+	  }
+	  return sb.toString();
+	}
+	
+	// 成功文
+	public String result( Model model ) {
+		model.addAttribute( "result", l + r );
+
 		return "math.html";
 	}
-//	@GetMapping("/math")
-//    public String math(Model model) {
-//		
-//		model.addAttribute( "math", "math" );
-//
-//    	return "math.html";
-//    }
-	// 値が数字かどうか確認
-		// 数字だったら計算して
-		// htmlに返す
-		// 数字じゃなかったら
-		// エラー文を吐き出す
-	
-	
-//    @GetMapping("/math")
-//    public String math(Model model) {
-//
-//    	return "login.html";
-//    }
-//    
-//    @GetMapping("/param")
-//    public String param( Model model ) {
-//    	
-//    	model.addAttribute( "math", "math" );
-//    	
-//    	return "math.html";
-//    }
+
+	// 数字エラー
+	public String errNumber( Model model1 ) {
+		model1.addAttribute( "result", "数字を入力して下さい。" );
+
+		return "math.html";
+	}
 }
