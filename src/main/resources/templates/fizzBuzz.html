@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>FizzBuzz</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>FizzBuzz</h1>
+	<form action="btn" method="post">
+		<input type="text" name="num" />
+		<button type="submit"></button>
+	</form>
+	<p>ⅰ．<span th:text="${fizz}"></span></p>
+	<p>ⅱ．<span th:text="${buzz}"></span></p>
+	<p>ⅲ．<span th:text="${fiizzBuzz}"></span></p>
+	<p>ⅳ．<span th:text="${all}"></span></p>
+</body>
+
+</html>
