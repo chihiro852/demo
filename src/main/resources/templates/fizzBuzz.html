@@ -10,9 +10,11 @@
 	<h1>FizzBuzz</h1>
 	<form action="btn" method="post">
 		<input type="text" name="no" />
-		<button type="submit"></button>
+		<button type="submit" name="ボタン"></button>
 	</form>
-	<p><span th:text="${result}"></span></p>
+	<ul th:each="list : ${result}">
+		<li th:text="${list}"></li>
+	</ul>
 </body>
 
 </html>
