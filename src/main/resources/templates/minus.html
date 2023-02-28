@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>math</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>計算フォーム</h1>
+	<form th:action="minus" method="post">
+		<input type="text" name="str1">
+		<button type="submit" name="minus">-</button>
+		<input type="text" name="str2">
+	</form>
+	<p th:text="${rslt}"></p>
+</body>
+
+</html>
