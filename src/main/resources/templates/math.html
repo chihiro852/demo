@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <title>math</title>
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <h1>計算フォーム</h1>
-    <form th:action="@{/form}" method="post">
+
+<head>
+	<title>math</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>計算フォーム</h1>
+	<form th:action="@{/form}" method="post">
 		<input type="text" name="str1">
 		<input type="submit" value="+" name="plus">
 		<input type="submit" value="-" name="minus">
 		<input type="text" name="str2">
 	</form>
-	<p th:text="${err}"}></p>
-  </body>
+	<p th:text="${err}"></p>
+</body>
+
 </html>
