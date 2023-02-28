@@ -26,9 +26,9 @@ public class MinusController {
 
 	@PostMapping("minus")
 	public String doPost(@RequestParam("str1") String str1, @RequestParam("str2") String str2, Model model) {
-		String rslt = minusService.minusParam(str1, str2);
+		String result = minusService.minusParam(str1, str2);
 
-		model.addAttribute("rslt", rslt);
+		model.addAttribute("rslt", result);
 
 		return "minus.html";
 	}
