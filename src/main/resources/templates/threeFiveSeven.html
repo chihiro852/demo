@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>ThreeFiveSeven</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>ThreeFiveSeven</h1>
+	<form action="threeFiveSeven" method="post">
+		<input type="text" name="str" />
+		<button type="submit">ボタン</button>
+	</form>
+	<ul th:each="list : ${list}">
+		<li th:text="${list}"></li>
+	</ul>
+</body>
+
+</html>
