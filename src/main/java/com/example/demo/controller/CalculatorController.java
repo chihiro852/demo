@@ -68,4 +68,34 @@ public class CalculatorController {
 
 		return "calculator";
 	}
+
+	/*	
+	 *  入力をボタンで電卓
+	 *  // 配列を作成しておく
+		ArrayList<String> list = new ArrayList();
+	
+		@PostMapping(value = "calculator", params = "str1")
+		public String addPost(@RequestParam("str1") String str1, Model model) {
+			list.add(str1);
+	
+			String s1 = String.join("", list);
+	
+			model.addAttribute("str1", s1);
+	
+			return "calculator";
+		}
+	
+		@PostMapping(value = "calculator", params = "add")
+		public String addPost(@RequestParam("str1") String str1, @RequestParam("str2") String str2, Model model) {
+			String result = additionService.addParam(str1, str2);
+	
+			model.addAttribute("result", result);
+	
+			return "calculator";
+		}
+	
+		@PostMapping("equal")
+		public String doPost(String str1, String str2, Model model) {
+			return "calculator";
+		}*/
 }
