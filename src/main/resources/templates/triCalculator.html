@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>テキストボックス３つの計算フォーム</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>テキストボックス３つの計算フォーム</h1>
+	<form th:action="triCalculator" method="post">
+		<input type="text" name="str1">
+		<select name="symbol1">
+			<option value="add" label="＋"></option>
+			<option value="sbt" label="－"></option>
+			<option value="mlt" label="×"></option>
+			<option value="dvs" label="÷"></option>
+		</select>
+		<input type="text" name="str2">
+		<select name="symbol2">
+			<option value="add" label="＋"></option>
+			<option value="sbt" label="－"></option>
+			<option value="mlt" label="×"></option>
+			<option value="dvs" label="÷"></option>
+		</select>
+		<input type="text" name="str3">
+		<button type="submit">=</button>
+	</form>
+	<p th:text="${result}"></p>
+</body>
+
+</html>
