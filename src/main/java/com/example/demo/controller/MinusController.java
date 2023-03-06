@@ -20,7 +20,11 @@ public class MinusController {
 	}
 
 	@GetMapping("/minus")
-	public String doGet() {
+	public String doGet(@RequestParam("str1") String str1, @RequestParam("str2") String str2, Model model) {
+		String result = minusService.minusParam(str1, str2);
+
+		model.addAttribute("rslt", result);
+
 		return "minus.html";
 	}
 

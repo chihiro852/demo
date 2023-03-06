@@ -19,7 +19,11 @@ public class MultiplicationController {
 	}
 
 	@GetMapping("/multiplication")
-	public String doGet() {
+	public String doGet(@RequestParam("str1") String str1, @RequestParam("str2") String str2, Model model) {
+		String result = multiplicationService.mltParam(str1, str2);
+
+		model.addAttribute("result", result);
+
 		return "multiplication.html";
 	}
 

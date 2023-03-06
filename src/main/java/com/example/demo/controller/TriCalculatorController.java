@@ -19,7 +19,11 @@ public class TriCalculatorController {
 	}
 
 	@GetMapping("/triCalculator")
-	public String doGet() {
+	public String doGet(@RequestParam("str1") String str1, @RequestParam("str2") String str2,
+			@RequestParam("str3") String str3,
+			@RequestParam("symbol1") String symbol1,
+			@RequestParam("symbol2") String symbol2,
+			Model model) {
 		return "triCalculator.html";
 	}
 

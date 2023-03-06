@@ -18,8 +18,12 @@ public class DivisionController {
 		this.divisionService = divisionService;
 	}
 
-	@GetMapping("division")
-	public String doGet() {
+	@GetMapping("/division")
+	public String doGet(@RequestParam("str1") String str1, @RequestParam("str2") String str2, Model model) {
+		String result = divisionService.dvsParam(str1, str2);
+
+		model.addAttribute("result", result);
+
 		return "division";
 	}
 
