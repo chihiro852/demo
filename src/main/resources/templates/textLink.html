@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>文字連結</title>
+	<meta charset="utf-8" />
+</head>
+
+<body>
+	<h1>文字連結</h1>
+	<form action="textLink" method="post">
+		<input type="text" name="str1">
+		<button type="submit">連結</button>
+		<input type="text" name="str2">
+	</form>
+	<p><span th:text="${result}"></span></p>
+</body>
+
+</html>
