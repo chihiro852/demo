@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,14 +22,11 @@ public class PracticeAPIController {
 
 	@GetMapping("practiceAPI")
 	public String doGet(Model model) throws JsonMappingException, JsonProcessingException {
-		Map<String, Object> result = new LinkedHashMap<>();
+		ArrayList<String> list = new ArrayList<>();
 
-		result = practiceAPIService.ser();
+		list = practiceAPIService.ser();
 
-		System.out.println(result.get("data"));
-		System.out.println(result.get("name"));
-
-		model.addAttribute("result", result);
+		model.addAttribute("result", list);
 
 		return "practiceAPI.html";
 	}
